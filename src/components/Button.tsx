@@ -9,13 +9,15 @@ interface ButtonProps {
   color: Color;
   text: string;
   borderColor?: Color;
+  onClick?: (e: React.MouseEvent<HTMLElement>) => void;
 }
 
-const Button = ({ size, color, text, borderColor }: ButtonProps) => {
+const Button = ({ size, color, text, borderColor, onClick }: ButtonProps) => {
   return (
     <button
       className={`button__${size}`}
       style={{ backgroundColor: color, borderColor: borderColor }}
+      onClick={onClick}
     >
       {text}
     </button>

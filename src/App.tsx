@@ -6,24 +6,34 @@ import "./App.css";
 function App() {
   const [counter, setCounter] = useState<number>(0);
 
-  const increment = (amount: number) => {
-    setCounter(counter + amount);
+  const increment = () => {
+    setCounter(counter + 1);
   };
 
   const decrement = () => {
     setCounter(counter - 1);
   };
 
+  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+  };
+
   return (
     <>
-      <h1 onClick={() => increment(2)}>{counter}</h1>
+      <h1 onClick={increment}>{counter}</h1>
 
-      <Button size="small" color={Color.GREEN} text="Click me!"></Button>
+      <Button
+        size="small"
+        color={Color.GREEN}
+        text="Decrement"
+        onClick={decrement}
+      ></Button>
       <Button
         size="large"
         color={Color.RED}
-        text="I'm Red!"
+        text="Increment"
         borderColor={Color.BLUE}
+        onClick={increment}
       ></Button>
     </>
   );
