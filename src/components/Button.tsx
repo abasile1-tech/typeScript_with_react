@@ -11,7 +11,11 @@ interface ButtonProps {
 }
 
 const Button = ({ size, color, text }: ButtonProps) => {
-  return <button></button>;
+  return (
+    <button className={`button__${size}`} style={{ backgroundColor: color }}>
+      {text}
+    </button>
+  );
 };
 
 export default Button;
